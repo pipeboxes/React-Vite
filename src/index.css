@@ -1,0 +1,134 @@
+html, body, #root, .app-container {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(247, 238, 236);
+}
+
+.navbar {
+  background-color: #d8f7c4;
+}
+
+header {
+  width: 100%;
+  background-image: url('https://www.baltana.com/files/wallpapers-24/Pizza-Background-HD-Wallpapers-61693.jpg');
+  background-size: cover;
+  background-position: center;
+  color: black;
+  font-weight: 700;
+  text-shadow: 2px 2px 0 rgb(255, 255, 255);
+  font-size: 20px;
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 40px;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+}
+
+.card {
+  width: 100%;
+}
+
+.card-deck {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card-body .btn {
+  margin: 20px 8px 5px 20px;
+}
+
+footer {
+  width: 100%;
+  background-color: #d8f7c4;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background-color: rgb(247, 238, 236); 
+}
+
+.Register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background-color: rgb(247, 238, 236); 
+}
+
+.form-box {
+  border: 1px solid black; 
+  border-radius: 8px; 
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  background-color: #d8f7c4; 
+  width: 100%;
+  max-width: 400px; 
+}
+
+.form-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.form-input:focus {
+  border-color: #80bdff;
+  outline: none;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn:focus {
+  outline: none;
+}
