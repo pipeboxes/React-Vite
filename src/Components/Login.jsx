@@ -13,7 +13,7 @@ function Login({ users, setLoggedIn }) {
     const user = users.find((user) => user.email === email && user.password === password);
 
     if (!user) {
-      setError("Email o contraseña incorrectos.");
+      setError("Email o contraseña incorrectos. Intenta nuevamente.");
       return;
     }
 
@@ -26,7 +26,7 @@ function Login({ users, setLoggedIn }) {
   return (
     <div className="Login">
       <div className="form-box">
-        <h2 className="form-title">Login</h2>
+        <h2 className="form-title">Iniciar Sesión</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Email:</label>

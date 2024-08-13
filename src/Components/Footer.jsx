@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer">
       © 2024 - Pizzería Mamma Mia! - Todos los derechos reservados
     </footer>
   );

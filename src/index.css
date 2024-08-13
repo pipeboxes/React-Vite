@@ -1,9 +1,15 @@
-html, body, #root, .app-container {
+html {
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-color: rgb(247, 238, 236);
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar {
@@ -24,13 +30,9 @@ header {
   margin-bottom: 40px;
 }
 
-.main-content {
-  flex: 1;
-  display: flex;
-}
-
 .card {
   width: 100%;
+  margin: 0;
 }
 
 .card-deck {
@@ -38,35 +40,21 @@ header {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin: 0;
 }
 
 .card-body .btn {
   margin: 20px 8px 5px 20px;
 }
 
-footer {
-  width: 100%;
-  background-color: #d8f7c4;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.Login {
+.Login, .Register {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh; 
-  background-color: rgb(247, 238, 236); 
-}
-
-.Register {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; 
-  background-color: rgb(247, 238, 236); 
+  background-color: rgb(255, 255, 255); 
+  margin: 0;
 }
 
 .form-box {
@@ -77,6 +65,7 @@ footer {
   background-color: #d8f7c4; 
   width: 100%;
   max-width: 400px; 
+  margin: 0 auto;
 }
 
 .form-title {
@@ -110,6 +99,7 @@ footer {
 .error-message {
   color: red;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .btn {
@@ -123,6 +113,7 @@ footer {
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+  margin: 0;
 }
 
 .btn:hover {
@@ -131,4 +122,14 @@ footer {
 
 .btn:focus {
   outline: none;
+}
+
+footer {
+  background-color: #d8f7c4;
+  padding: 20px 0;
+  width: 100%;
+  flex-shrink: 0;
+  text-align: center;
+  margin-top: 150px;
+  position: relative;
 }

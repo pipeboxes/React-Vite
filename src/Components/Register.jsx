@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 
 function Register({ setUsers }) {
@@ -26,10 +27,14 @@ function Register({ setUsers }) {
       return;
     }
 
-    setUsers(prevUsers => [...prevUsers, { email, password }]);
-    setError("");
-    alert("Usuario registrado con éxito.");
-    navigate("/");
+    if (typeof setUsers === 'function') {
+      setUsers(prevUsers => [...prevUsers, { email, password }]);
+      setError("");
+      alert("Usuario registrado con éxito.");
+      navigate("/");
+    } else {
+      console.error("setUsers no es una función");
+    }
   };
 
   return (
@@ -71,5 +76,9 @@ function Register({ setUsers }) {
     </div>
   );
 }
+
+Register.propTypes = {
+  setUsers: PropTypes.func.isRequired
+};
 
 export default Register;
