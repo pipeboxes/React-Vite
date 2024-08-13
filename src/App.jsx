@@ -7,7 +7,7 @@ import Register from "./Components/Register";
 import Footer from "./Components/Footer";
 
 const App = () => {
-  const [users, setUsers] = useState([]); // Estado para los usuarios
+  const [users, setUsers] = useState([]);
 
   return (
     <Router>
