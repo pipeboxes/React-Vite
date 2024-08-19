@@ -33,6 +33,7 @@ header {
 .card {
   width: 100%;
   margin: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
 }
 
 .card-deck {
@@ -47,6 +48,10 @@ header {
   margin: 20px 8px 5px 20px;
 }
 
+.price {
+  font-weight: bold;
+}
+
 .Login, .Register {
   display: flex;
   flex-direction: column;
@@ -55,6 +60,104 @@ header {
   height: 100vh; 
   background-color: rgb(255, 255, 255); 
   margin: 0;
+}
+
+.Cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background-color: rgb(255, 255, 255); 
+  margin: 0;
+}
+
+.cart-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.empty-cart-message {
+  margin-top: 20px; 
+  font-size: 18px; 
+  color: #333; 
+}
+
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: rgb(255, 255, 255); 
+  box-sizing: border-box; 
+  h2 {
+    margin-bottom: 4rem;
+  }
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cart-item img {
+  width: 80px;
+  border-radius: 8px;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.cart-item-info h5 {
+  margin: 0;
+}
+
+.cart-item-info p {
+  margin: 5px 0;
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cart-buttons .btn {
+  margin: 0;
+}
+
+.cart-total {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-pay {
+  background-color: #28a745;
+}
+
+.btn-pay:hover {
+  background-color: #218838;
 }
 
 .form-box {
@@ -130,6 +233,6 @@ footer {
   width: 100%;
   flex-shrink: 0;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 740px;
   position: relative;
 }

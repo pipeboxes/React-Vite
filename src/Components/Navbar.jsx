@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ loggedIn }) => {
-  const total = 25000;
-  
+const Navbar = ({ loggedIn, total }) => {
   return (
     <nav className="navbar navbar-expand-lg">
       <Link className="navbar-brand" to="/">🍕 Pizzería</Link>
@@ -32,11 +30,11 @@ const Navbar = ({ loggedIn }) => {
               <li className="nav-item">
                 <Link className="nav-link" to="/register">🔐 Register</Link>
               </li>
+              <li className="nav-item">
+            <Link className="nav-link" to="/cart">🛒 Total: ${total.toLocaleString()}</Link>
+          </li>
             </>
           )}
-          <li className="nav-item">
-            <span className="nav-link">🛒 Total: {total.toLocaleString()}</span>
-          </li>
         </ul>
       </div>
     </nav>
