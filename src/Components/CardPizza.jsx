@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardPizza = ({ name, price, ingredients, img, addToCart }) => {
+const CardPizza = ({ name, price, ingredients, img, description, addToCart }) => {
   return (
     <div className="card" style={{ width: "20rem" }}>
       <img className="card-img-top" src={img} alt={name} />
@@ -12,7 +12,9 @@ const CardPizza = ({ name, price, ingredients, img, addToCart }) => {
           ))}
         </ul>
         <p className="card-text price">Precio: ${price.toLocaleString()}</p>
-        <button className="btn btn-secondary ml-2" onClick={addToCart}>Añadir🛒</button>
+        <p className="card-text">{description}</p>
+        {/* <button className="btn btn-secondary ml-2" onClick={addToCart}>Añadir🛒</button> */}
+        <button className="btn btn-secondary ml-2">Añadir🛒</button>
         <a href="#" className="btn btn-primary">Ver más🍕</a>
       </div>
     </div>

@@ -6,7 +6,7 @@ import Cart from './Components/Cart';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import Footer from './Components/Footer';
-import pizzas from './Components/pizzas';
+import Pizza from './Components/Pizza';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -31,11 +31,11 @@ function App() {
       <div className="app-container">
         <Navbar total={total} />
         <Routes>
-          <Route path="/" element={<Home addToCart={addToCart} pizzas={pizzas} />} />
-          <Route path="/login" element={<Login users={users} setLoggedIn={() => {}} />} />
+          <Route path="/" element={<Pizza />} />
+          {/* /* <Route path="/" element={<Home addToCart={addToCart} />} /> /*Descomentar para ver todas las pizzas */}
+          <Route path="/login" element={<Login users={users} setLoggedIn={() => { }} />} />
           <Route path="/register" element={<Register setUsers={setUsers} />} />
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
-          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
       </div>

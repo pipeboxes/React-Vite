@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import CardPizza from './CardPizza';
-import pizzas from './pizzas';
 
 const Home = ({ addToCart }) => {
+  const [pizzas, setPizzas] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/pizzas')
+      .then(response => response.json())
+      .then(data => setPizzas(data))
+      .catch(error => console.error('Error fetching pizzas:', error));
+  }, []);
+
   return (
     <>
       <Header />
@@ -16,6 +24,7 @@ const Home = ({ addToCart }) => {
                 price={pizza.price}
                 ingredients={pizza.ingredients}
                 img={pizza.img}
+                description={pizza.desc}
                 addToCart={() => addToCart(pizza)}
               />
             </div>

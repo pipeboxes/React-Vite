@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({ loggedIn, total }) => {
+  const formattedTotal = (total || 0).toLocaleString();
+
   return (
     <nav className="navbar navbar-expand-lg">
       <Link className="navbar-brand" to="/">🍕 Pizzería</Link>
@@ -31,8 +33,8 @@ const Navbar = ({ loggedIn, total }) => {
                 <Link className="nav-link" to="/register">🔐 Register</Link>
               </li>
               <li className="nav-item">
-            <Link className="nav-link" to="/cart">🛒 Total: ${total.toLocaleString()}</Link>
-          </li>
+                <Link className="nav-link" to="/cart">🛒 Total: ${formattedTotal}</Link>
+              </li>
             </>
           )}
         </ul>
