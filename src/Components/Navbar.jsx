@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ loggedIn, total }) => {
+const Navbar = ({ total }) => {
   const formattedTotal = (total || 0).toLocaleString();
 
   return (
@@ -15,28 +15,18 @@ const Navbar = ({ loggedIn, total }) => {
           <li className="nav-item">
             <Link className="nav-link" to="/">🍕 Home</Link>
           </li>
-          {loggedIn ? (
-            <>
-              <li className="nav-item">
-                <Link className="nav-link" to="#">🔓 Profile</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="#">🔒 Logout</Link>
-              </li>
-            </>
-          ) : (
-            <>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">🔐 Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">🔐 Register</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/cart">🛒 Total: ${formattedTotal}</Link>
-              </li>
-            </>
-          )}
+          <li className="nav-item">
+            <Link className="nav-link" to="/profile">👤 Profile</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/login">🔐 Login</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/register">🔐 Register</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/cart">🛒 Total: ${formattedTotal}</Link>
+          </li>
         </ul>
       </div>
     </nav>

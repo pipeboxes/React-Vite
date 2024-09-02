@@ -13,8 +13,7 @@ const CardPizza = ({ name, price, ingredients, img, description, addToCart }) =>
         </ul>
         <p className="card-text price">Precio: ${price.toLocaleString()}</p>
         <p className="card-text">{description}</p>
-        {/* <button className="btn btn-secondary ml-2" onClick={addToCart}>Añadir🛒</button> */}
-        <button className="btn btn-secondary ml-2">Añadir🛒</button>
+        <button className="btn btn-secondary ml-2" onClick={addToCart}>Añadir🛒</button>
         <a href="#" className="btn btn-primary">Ver más🍕</a>
       </div>
     </div>

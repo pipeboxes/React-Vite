@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import CardPizza from "./CardPizza";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import CardPizza from "../Components/CardPizza";
 
-const Pizza = () => {
+const Pizza = ({ addToCart }) => {
   const { id } = useParams();
   const [pizza, setPizza] = useState(null);
 
@@ -24,7 +24,7 @@ const Pizza = () => {
           ingredients={pizza.ingredients}
           img={pizza.img}
           description={pizza.desc}
-          addToCart={() => { }}
+          addToCart={() => addToCart(pizza)} 
         />
   );
 };
