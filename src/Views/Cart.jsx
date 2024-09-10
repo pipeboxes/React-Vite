@@ -1,20 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../Views/CartContext';
 
-const Cart = ({ cart, setCart }) => {
-
-  const total = cart.reduce((sum, pizza) => sum + (pizza.price * (pizza.quantity || 1)), 0);
-
-  const increaseQuantity = (id) => {
-    setCart(cart.map(pizza =>
-      pizza.id === id ? { ...pizza, quantity: pizza.quantity + 1 } : pizza
-    ));
-  };
-
-  const decreaseQuantity = (id) => {
-    setCart(cart.map(pizza =>
-      pizza.id === id ? { ...pizza, quantity: Math.max(pizza.quantity - 1, 0) } : pizza
-    ).filter(pizza => pizza.quantity > 0));
-  };
+const Cart = () => {
+  const { cart, increaseQuantity, decreaseQuantity, total } = useContext(CartContext);
 
   return (
     <div className="container mt-5">

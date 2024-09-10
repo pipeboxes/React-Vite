@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Header from '../Components/Header';
 import CardPizza from '../Components/CardPizza';
+import { CartContext } from '../Views/CartContext';
 
-const Home = ({ addToCart }) => {
+const Home = () => {
   const [pizzas, setPizzas] = useState([]);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch('http://localhost:5000/api/pizzas')
@@ -14,7 +16,6 @@ const Home = ({ addToCart }) => {
 
   return (
     <>
-      <Header />
       <div className="main-content container-fluid d-flex flex-column align-items-center">
         <div className="row justify-content-center w-100">
           {pizzas.map(pizza => (
