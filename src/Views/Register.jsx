@@ -27,14 +27,20 @@ function Register({ setUsers }) {
       return;
     }
 
-    if (typeof setUsers === 'function') {
-      setUsers(prevUsers => [...prevUsers, { email, password }]);
-      setError("");
+    // Comprobar si el usuario ya existe
+    setUsers(prevUsers => {
+      const existingUser = prevUsers.find(user => user.email === email);
+      if (existingUser) {
+        setError("El email ya está registrado.");
+        return prevUsers;
+      }
+    // Registrar el nuevo usuario
       alert("Usuario registrado con éxito.");
-      navigate("/");
-    } else {
-      console.error("setUsers no es una función");
-    }
+      return [...prevUsers, { email, password }];
+    });
+    
+    setError("");
+    navigate("/login");
   };
 
   return (

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from '../Views/UserContext';
 
-function Login({ users, setLoggedIn }) {
+function Login({ users }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { login } = useUser();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,10 +19,10 @@ function Login({ users, setLoggedIn }) {
       return;
     }
 
-    setLoggedIn(true);
+    login(email);
     setError("");
     alert("Inicio de sesión exitoso.");
-    navigate("/");
+    navigate("/profile");
   };
 
   return (
