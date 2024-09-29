@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../Views/CartContext';
 import { useUser } from '../Views/UserContext';
 
 const Navbar = () => {
   const { total } = useContext(CartContext);
-  const { token, logout } = useUser();
+  const { token, logout, getProfile } = useUser();
   const formattedTotal = (total || 0).toLocaleString();
+
+  useEffect(() => {
+    if (token) {
+      getProfile();
+    }
+  }, [token, getProfile]);
 
   return (
     <nav className="navbar navbar-expand-lg">

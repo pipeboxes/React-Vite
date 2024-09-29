@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
+import { useUser } from '../Views/UserContext';
 
-function Register({ setUsers }) {
+function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { register } = useUser();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email || !password || !confirmPassword) {
@@ -27,20 +29,13 @@ function Register({ setUsers }) {
       return;
     }
 
-    // Comprobar si el usuario ya existe
-    setUsers(prevUsers => {
-      const existingUser = prevUsers.find(user => user.email === email);
-      if (existingUser) {
-        setError("El email ya está registrado.");
-        return prevUsers;
-      }
-    // Registrar el nuevo usuario
+    try {
+      await register(email, password);
       alert("Usuario registrado con éxito.");
-      return [...prevUsers, { email, password }];
-    });
-    
-    setError("");
-    navigate("/login");
+      navigate("/login");
+    } catch (error) {
+      setError(error.message || "Error al registrar usuario.");
+    }
   };
 
   return (

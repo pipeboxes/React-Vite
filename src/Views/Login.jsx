@@ -2,27 +2,24 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from '../Views/UserContext';
 
-function Login({ users }) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { login } = useUser();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const user = users.find((user) => user.email === email && user.password === password);
-
-    if (!user) {
-      setError("Email o contraseña incorrectos. Intenta nuevamente.");
-      return;
+    try {
+      await login(email, password);
+      setError("");
+      alert("Inicio de sesión exitoso.");
+      navigate("/profile");
+    } catch (error) {
+      setError(error.message || "Email o contraseña incorrectos. Intenta nuevamente.");
     }
-
-    login(email);
-    setError("");
-    alert("Inicio de sesión exitoso.");
-    navigate("/profile");
   };
 
   return (
@@ -37,6 +34,7 @@ function Login({ users }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form-input"
+              required
             />
           </div>
           <div className="form-group">
@@ -46,6 +44,7 @@ function Login({ users }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-input"
+              required
             />
           </div>
           {error && <p className="error-message">{error}</p>}

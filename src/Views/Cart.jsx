@@ -6,6 +6,30 @@ const Cart = () => {
   const { cart, increaseQuantity, decreaseQuantity, total } = useContext(CartContext);
   const { token } = useUser();
 
+  const handleCheckout = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/checkouts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ cart, total }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error en el proceso de checkout.');
+      }
+
+      const data = await response.json();
+      alert(`¡Gracias por su compra!`);
+    } catch (error) {
+      console.error('Registrese e intente nuevamente:', error);
+      alert(error.message);
+    }
+  };
+
   return (
     <div className="container mt-5">
       {cart.length === 0 ? (
@@ -34,7 +58,9 @@ const Cart = () => {
             ))}
           </div>
           <h3>Total: ${total.toLocaleString()}</h3>
-          <button className="btn btn-success" disabled={!token}>Pagar</button>
+          <button className="btn btn-success" onClick={handleCheckout} disabled={!token}>
+            Pagar
+          </button>
         </div>
       )}
     </div>
